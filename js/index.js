@@ -2,17 +2,23 @@
 const error = errorMsg => {
     document.getElementById('error').innerText = errorMsg;
 }
+const spinner = spinnerstyle => {
+    document.getElementById('spinner').style.display = spinnerstyle;
+}
+
 const container = document.getElementById('container')
 const containerDetails = document.getElementById('container-details');
 
 
 const loadPhone = async () => {
+    spinner('block')
     const input = document.getElementById('input');
     const inputValue = input.value;
 
     if(parseInt(inputValue) >= 0 || inputValue == '' || parseInt(inputValue) <= 0){
         error('Please enter a phone name')
         input.value = ''
+        container.innerHTML = ''
     }
     else{
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
@@ -26,8 +32,16 @@ const loadPhone = async () => {
 // Data displaying function
 const displayData = phones => {
 
+    // if(!phones){
+    //   document.getElementById('emthy-error').innerText = "please enter a valid name"
+    // }
+    // else{
+    //     document.getElementById('emthy-error').innerText = ""
+    // }
+
     container.innerHTML = '';
-    phones.forEach(phone => {
+    error('')
+    phones?.forEach(phone => {
         
         console.log(phone);
 
@@ -48,6 +62,8 @@ const displayData = phones => {
         </div>
         `
         container.appendChild(div);
+        error('');
+        spinner('none')
     })
 }
 
