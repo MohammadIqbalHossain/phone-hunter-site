@@ -15,26 +15,29 @@
 
     <h2 class="text-center text-success my-4">Phone Finder</h2>
     
+    <!-- Button and input field -->
     <div class="container">
         <div class="input-group mb-3">
             <input id="input"  type="text" class="form-control shadow" placeholder="Search you'r phone" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button onclick="loadPhone()" class="btn btn-outline-secondary shadow  bg-white rounded-lg" type="button" id="button-addon2">Search</button>
           </div>
     </div>
-
+    
+    <!-- Spinner -->
     <div class="spinner-border text-success" id="spinner" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
 
+    <!-- error messages -->
      <h2 class="text-center text-danger" id="error"></h2>
      <h2 class="text-center text-danger" id="emthy-error"></h2>
 
-
+    <!-- details container -->
      <div id="container-details" class="container mx-auto">
 
      </div>
 
-
+    <!-- main container -->
     <div id="container" class="container row mx-auto">
       
     <button class="btn-success" id="see-more">See more</button>
