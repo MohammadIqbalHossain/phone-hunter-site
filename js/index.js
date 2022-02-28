@@ -24,7 +24,8 @@ const loadPhone = async () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     const response = await fetch(url);
     const data = await response.json();
-    displayData(data.data)
+    const sliced = data.data.slice(0, 20)
+    displayData(sliced)
     input.value = '';
     }
 }
@@ -32,6 +33,7 @@ const loadPhone = async () => {
 // Data displaying function
 const displayData = phones => {
 
+     console.log(phones);
     // if(!phones){
     //   document.getElementById('emthy-error').innerText = "please enter a valid name"
     // }
@@ -60,7 +62,7 @@ const displayData = phones => {
             <button class="btn-success p-2 border-0 rounded" onclick="getDetails('${phone.slug}')">See Details</button>
             </div>
         </div>
-        `
+        `;
         container.appendChild(div);
         error('');
         spinner('none')
