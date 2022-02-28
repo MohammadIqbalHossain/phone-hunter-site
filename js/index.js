@@ -1,3 +1,7 @@
+const emthyError = error => {
+    document.getElementById('emthy-error').innerText = error;
+
+}
 
 const error = errorMsg => {
     document.getElementById('error').innerText = errorMsg;
@@ -19,6 +23,7 @@ const loadPhone = async () => {
         error('Please enter a phone name')
         input.value = ''
         container.innerHTML = ''
+        spinner('')
     }
     else{
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
@@ -32,18 +37,18 @@ const loadPhone = async () => {
 
 // Data displaying function
 const displayData = phones => {
-
-     console.log(phones);
-    // if(!phones){
-    //   document.getElementById('emthy-error').innerText = "please enter a valid name"
-    // }
-    // else{
-    //     document.getElementById('emthy-error').innerText = ""
-    // }
-
+    if(!phones.length){
+        emthyError('please enter a valid name')
+        spinner('')
+      }
+      else{
+         emthyError('');
+      }
     container.innerHTML = '';
     error('')
     phones?.forEach(phone => {
+
+       
         
         console.log(phone);
 
@@ -61,12 +66,16 @@ const displayData = phones => {
             <p class="card-text fw-bold text-success bg-opacity-25">${phone.brand}</p>
             <button class="btn-success p-2 border-0 rounded" onclick="getDetails('${phone.slug}')">See Details</button>
             </div>
+            
         </div>
         `;
+        
         container.appendChild(div);
         error('');
         spinner('none')
+        
     })
+    
 }
 
 

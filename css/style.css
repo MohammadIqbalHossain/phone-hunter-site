@@ -3,3 +3,9 @@
     margin: 0 auto;
     display: none;
 }
+
+#see-more{
+    border-radius: 20px;
+    width: 100px;
+    display: none;
+}
