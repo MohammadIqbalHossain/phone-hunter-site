@@ -63,19 +63,43 @@ const getDetails = id => {
 
 const displayDitails = feature => {
     console.log(feature);
+    containerDetails.innerHTML = '';
+
     const div = document.createElement('div');
     container.innerHTML = '';
+
+  
+   function sensorsItem(){
+        const sensors=  feature.mainFeatures.sensors.map(item => item)
+        return sensors;
+   }
+   
+  
+    
     div.innerHTML = `
     <div class="card mb-3 m-auto shadow" style="max-width: 540px;">
   <div class="row g-0">
-    <div class="col-md-4">
+    <div class="col-md-4 my-auto">
       <img src="${feature.image}" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${feature.name}</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><span>Display size: ${feature.mainFeatures.displaySize}</span></p>
+        <p class="card-text"><span>chipset: ${feature.mainFeatures.chipSet? feature.mainFeatures.chipSet: "It's doesn't have chipset"}</span></p>
+
+        <p class="card-text"><span>Memory: ${feature.mainFeatures.memory? feature.mainFeatures.memory: "It's doesn't have memory"}</span></p>
+
         <p class="card-text"><small class="text-muted">Realese: ${feature.releaseDate? feature.releaseDate:"No release date found"}</small></p>
+        <p>Sensors:${sensorsItem()}</p>
+        <ul>
+        <ol>Bluetooth: ${feature.others.Bluetooth}</ol>
+        <ol>GPS: ${feature.others.GPS}</ol>
+        <ol>NPC: ${feature.others.NFC}</ol>
+        <ol>Radio: ${feature.others.Radio}</ol>
+        <ol>USB: ${feature.others.USB}</ol>
+        <ol>WLAN: ${feature.others.WLAN}</ol>
+        </ul>
       </div>
     </div>
   </div>
@@ -83,3 +107,5 @@ const displayDitails = feature => {
 `;
 containerDetails.appendChild(div)
 }
+
+
