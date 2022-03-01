@@ -13,20 +13,25 @@
 </head>
 <body>
 
-    <h2 class="text-center text-success my-4">Phone Finder</h2>
-    
+<div class="bg-photo">
+
+
+    <h2 class="text-center  my-4">Phone Finder</h2>
     <!-- Button and input field -->
-    <div class="container">
-        <div class="input-group mb-3">
-            <input id="input"  type="text" class="form-control shadow" placeholder="Search you'r phone" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="container pb-5">
+        <div class="input-group mb-3 ">
+            <input id="input"   type="text" class="form-control shadow mx-1" placeholder="Search you'r phone" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button onclick="loadPhone()" class="btn btn-outline-secondary shadow  bg-white rounded-lg" type="button" id="button-addon2">Search</button>
           </div>
     </div>
-    
-    <!-- Spinner -->
-    <div class="spinner-border text-success" id="spinner" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
+
+</div>
+
+ <!-- Spinner -->
+<div class="spinner-border text-success" id="spinner" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>    
+   
 
     <!-- error messages -->
      <h2 class="text-center text-danger" id="error"></h2>
@@ -43,6 +48,7 @@
  
     </div>
 
+  <!-- See more button -->
   <div class="d-flex justify-content-center align-item-end">
     <button class="btn-success mx-auto border-0 " onclick="showAll()" id="see-more">See more</button>
   </div>

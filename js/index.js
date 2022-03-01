@@ -20,7 +20,8 @@ const containerDetails = document.getElementById('container-details');
 const loadPhone = async () => {
     spinner('block')
     const input = document.getElementById('input');
-    const inputValue = input.value;
+    const inputValue = (input.value).toLowerCase();
+    
 
     if(parseInt(inputValue) >= 0 || inputValue == '' || parseInt(inputValue) <= 0){
         error('Please enter a phone name')
@@ -114,7 +115,7 @@ const displayDitails = feature => {
   
    //funtion for get sensorrs array elements.
    function sensorsItem(){
-        const sensors=  feature.mainFeatures.sensors.map(item => item)
+        const sensors =  feature.mainFeatures.sensors.map(item => item)
         return sensors;
    }
    
@@ -128,24 +129,25 @@ const displayDitails = feature => {
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">${feature.name}</h5>
-        <p class="card-text"><span>Display size: ${feature.mainFeatures.displaySize}</span></p>
+        <h6 class="card-title">${feature.name}</h6>
+        <p class="card-text "><span class="fw-bold">Display size:</span> ${feature.mainFeatures.displaySize}</p>
         
-        <p class="card-text"><span>chipset: ${feature.mainFeatures.chipSet? feature.mainFeatures.chipSet: "It's doesn't have chipset"}</span></p>
+        <p class="card-text"><span class="fw-bold">chipset:</span> ${feature.mainFeatures.chipSet? feature.mainFeatures.chipSet: "It's doesn't have chipset"}</span></p>
 
-        <p class="card-text"><span>Memory: ${feature.mainFeatures.memory? feature.mainFeatures.memory: "It's doesn't have memory"}</span></p>
+        <p class="card-text"><span class="fw-bold">Memory: </span>${feature.mainFeatures.memory? feature.mainFeatures.memory: "It's doesn't have memory"}</p>
 
-        <p class="card-text"><small class="text-muted">Realese: ${feature.releaseDate? feature.releaseDate:"No release date found"}</small></p>
+        <p class="card-text"><small class="text-muted"><span class="fw-bold">Realese: </span>${feature.releaseDate? feature.releaseDate:"No release date found"}</small></p>
 
-        <p>Sensors:${sensorsItem()}</p>
-
+        <p><span class="fw-bold">Sensors: </span>${sensorsItem()}</p>
+         
+      
         <ul>
-        <ol>Bluetooth: ${feature.others.Bluetooth}</ol>
-        <ol>GPS: ${feature.others.GPS}</ol>
-        <ol>NPC: ${feature.others.NFC}</ol>
-        <ol>Radio: ${feature.others.Radio}</ol>
-        <ol>USB: ${feature.others.USB}</ol>
-        <ol>WLAN: ${feature.others.WLAN}</ol>
+        <ol><img src="images/bluetooth.svg" width=20px">: ${feature.others.Bluetooth}</ol>
+        <ol><img src="images/map-pin.svg" width=20px">: ${feature.others.GPS}</ol>
+        <ol><img src="images/nfc.svg" width=20px">: ${feature.others.NFC}</ol>
+        <ol><img src="images/radio.svg" width=20px">: ${feature.others.Radio}</ol>
+        <ol><img src="images/USB.svg" width=20px">: ${feature.others.USB}</ol>
+        <ol><img src="images/wifi.svg" width=20px">:${feature.others.WLAN}</ol>
         </ul>
 
       </div>
@@ -171,4 +173,6 @@ const showAll = () => {
   .then(res => res.json())
   .then(data => displayData(data.data))
   input.value = '';
+ 
 }
+
