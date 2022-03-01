@@ -32,11 +32,19 @@ const loadPhone = async () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     const response = await fetch(url);
     const data = await response.json();
-    const sliced = data.data.slice(0, 20)
-    displayData(sliced)
-    input.value = '';
+   
+
+    let sliced = data.data.slice(0, 20)
+    displayData(sliced);
+    // input.value = '';
+  
     }
+
+   
+  
 }
+
+
 
 
 // Data displaying function
@@ -73,14 +81,18 @@ const displayData = phones => {
             </div>
         </div>
         `;
+       
         
         container.appendChild(div);
         error('');
         spinner('none')
         
     })
-    
+    document.getElementById('see-more').style.display = "block";
+   
 }
+
+ 
 
 //Details data loading functions
 const getDetails = id => {
@@ -146,3 +158,18 @@ containerDetails.appendChild(div)
 }
 
 
+
+//Function for display more data
+const showAll = () => {
+ 
+  spinner('block')
+  const input = document.getElementById('input');
+  const inputValue = input.value;
+
+  const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
+  console.log(url)
+  fetch(url)
+  .then(res => res.json())
+  .then(data => displayData(data.data))
+
+}
