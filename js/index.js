@@ -36,7 +36,6 @@ const loadPhone = async () => {
 
     let sliced = data.data.slice(0, 20)
     displayData(sliced);
-    // input.value = '';
   
     }
 
@@ -72,10 +71,10 @@ const displayData = phones => {
                 
       
         div.innerHTML = `
-        <div class="card border-0 " style="width: 18rem;">
+        <div class="card border-0 custom-style" style="width: 18rem;">
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body text-center">
-            <h3 class="text-center">${phone.phone_name}</h3>
+            <h4 class="text-center">${phone.phone_name}</h4>
             <p class="card-text fw-bold text-success bg-opacity-25">${phone.brand}</p>
             <button class="btn-success p-2 border-0 rounded" onclick="getDetails('${phone.slug}')">See Details</button>
             </div>
@@ -171,5 +170,5 @@ const showAll = () => {
   fetch(url)
   .then(res => res.json())
   .then(data => displayData(data.data))
-
+  input.value = '';
 }

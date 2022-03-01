@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Moon+Dance&family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap');
+
+body{
+    font-family: 'Moon Dance', cursive;
+}
+
+
+
 #spinner{
     display: flex;
     margin: 0 auto;
@@ -5,7 +13,18 @@
 }
 
 #see-more{
-    border-radius: 20px;
+    border-radius: 10px;
     width: 100px;
     display: none;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: brown;
+}
+
+.custom-style{
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 12px 12px 12px 12px rgba(138, 138, 160, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+    height: 90vh;
 }
