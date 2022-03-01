@@ -6,6 +6,7 @@ const emthyError = error => {
 
 const error = errorMsg => {
     document.getElementById('error').innerText = errorMsg;
+   
 }
 const spinner = spinnerstyle => {
     document.getElementById('spinner').style.display = spinnerstyle;
@@ -28,6 +29,7 @@ const loadPhone = async () => {
         input.value = ''
         container.innerHTML = ''
         spinner('')
+        document.getElementById('see-more').style.display = "none";
     }
     else{
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
@@ -52,9 +54,11 @@ const displayData = phones => {
     if(!phones.length){
         emthyError('please enter a valid name')
         spinner('')
+        
       }
       else{
          emthyError('');
+        
       }
 
     container.innerHTML = '';
