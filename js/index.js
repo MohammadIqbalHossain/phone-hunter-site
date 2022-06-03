@@ -51,6 +51,7 @@ const loadPhone = async () => {
 
 // Data displaying function
 const displayData = phones => {
+   
     if(!phones.length){
         emthyError('please enter a valid name')
         spinner('')
@@ -65,7 +66,7 @@ const displayData = phones => {
     error('')
     phones?.forEach(phone => {
 
-       
+      
         
         // console.log(phone);
 
@@ -124,7 +125,7 @@ const displayDitails = feature => {
    }
    
   
-    
+    console.log(feature);
     div.innerHTML = `
     <div class="card mb-3 m-auto shadow" style="max-width: 540px;">
   <div class="row g-0">
